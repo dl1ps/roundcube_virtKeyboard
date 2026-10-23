@@ -1,0 +1,13 @@
+VERSION                COMMENT
+---------------------------------------------------------------------------------
+1.9.3                  - RC 1.7 public_html: drop ?v= on include_stylesheet (was
+                       - silently skipped); vkicon via asset_url → static.php
+1.9.2                  - Elastic keyboard: flat rc_lite/Droid chrome, SVG initiator,
+                       - force elastic skin for rc_lite, CSS cache-bust
+1.9.1                  - Roundcube 1.7: info(), composer.json, skin/lang hardening
+                       - Enter submits only the target/login form (not first form)
+1.9.0                  - Elastic / rc_lite skin (local_skin_path)
+                       - Keep Elastic form-control classes on login inputs
+                       - Dark-mode keyboard popup colors
+                       - Prefer rcmail.env.vkicon asset URL
+1.8.5                  - Roundcube 1.0 compatibility

@@ -1,0 +1,26 @@
+{
+    "name": "straubing/vkeyboard",
+    "type": "roundcube-plugin",
+    "description": "Virtual keyboard for Roundcube login fields (keylogger mitigation). Elastic / rc_lite compatible.",
+    "license": "GPL-3.0-or-later",
+    "version": "1.9.3",
+    "authors": [
+        {
+            "name": "MyRoundcube Dev Team",
+            "role": "Original"
+        },
+        {
+            "name": "rc_lite port",
+            "role": "Developer"
+        }
+    ],
+    "require": {
+        "php": ">=7.4.0",
+        "roundcube/plugin-installer": ">=0.3.0"
+    },
+    "extra": {
+        "roundcube": {
+            "min-version": "1.4.0"
+        }
+    }
+}

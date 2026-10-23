@@ -1,0 +1,344 @@
+/**
+ * vkeyboard — Elastic / rc_lite
+ * Flat Material-like chrome (no Larry bevels). Dark follows Droid/rc_lite.
+ */
+
+/* ---- Login field + initiator ---- */
+#login-form .vkeyboard-field,
+body.task-login .vkeyboard-field {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+#login-form input.keyboardInput,
+body.task-login input.keyboardInput {
+  flex: 1 1 auto;
+  min-width: 0;
+  vertical-align: middle;
+}
+
+img.keyboardInputInitiator,
+button.keyboardInputInitiator {
+  flex: 0 0 auto;
+  width: 1.35rem !important;
+  height: 1.35rem !important;
+  margin: 0 !important;
+  padding: 0.35rem !important;
+  box-sizing: content-box !important;
+  border: 0 !important;
+  border-radius: 0.25rem;
+  cursor: pointer;
+  opacity: 0.8;
+  vertical-align: middle;
+  background: transparent !important;
+  color: #666;
+}
+
+img.keyboardInputInitiator:hover,
+img.keyboardInputInitiator:focus,
+button.keyboardInputInitiator:hover,
+button.keyboardInputInitiator:focus {
+  opacity: 1;
+  background: rgba(0, 0, 0, 0.06) !important;
+}
+
+html.dark-mode img.keyboardInputInitiator,
+html.dark-mode button.keyboardInputInitiator {
+  color: #c5d1d3;
+}
+
+/* Raster PNG only: soft invert. SVG uses explicit stroke and sits on white fields. */
+html.dark-mode img.keyboardInputInitiator[src$=".png"] {
+  filter: brightness(0) invert(0.82);
+}
+
+html.dark-mode img.keyboardInputInitiator[src$=".svg"],
+html.dark-mode button.keyboardInputInitiator {
+  filter: none;
+}
+
+html.dark-mode img.keyboardInputInitiator:hover,
+html.dark-mode img.keyboardInputInitiator:focus,
+html.dark-mode button.keyboardInputInitiator:hover,
+html.dark-mode button.keyboardInputInitiator:focus {
+  background: rgba(255, 255, 255, 0.08) !important;
+}
+
+/* ---- Popup shell (flat Elastic card) ---- */
+#keyboardInputMaster {
+  position: absolute !important;
+  z-index: 1000000 !important;
+  width: auto !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  line-height: 1.2 !important;
+  text-align: left !important;
+  color: #333 !important;
+  background: #fff !important;
+  border: 1px solid #ced4da !important;
+  border-radius: 0.3rem !important;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.18) !important;
+  opacity: 1 !important;
+  overflow: hidden !important;
+  /* Kill Larry gradients / inset chrome if an old sheet still loads */
+  background-image: none !important;
+}
+
+#keyboardInputMaster * {
+  position: static !important;
+  box-shadow: none !important;
+  text-shadow: none !important;
+  background-image: none !important;
+  font-family: Sarala, Roboto, "Helvetica Neue", Arial, sans-serif !important;
+  font-weight: 400 !important;
+  margin: 0;
+  padding: 0;
+  outline: 0;
+  vertical-align: baseline;
+}
+
+#keyboardInputMaster.keyboardInputSize1 * { font-size: 10px !important; }
+#keyboardInputMaster.keyboardInputSize2 * { font-size: 13px !important; }
+#keyboardInputMaster.keyboardInputSize3 * { font-size: 14px !important; }
+#keyboardInputMaster.keyboardInputSize4 * { font-size: 16px !important; }
+#keyboardInputMaster.keyboardInputSize5 * { font-size: 18px !important; }
+
+/* Header */
+#keyboardInputMaster thead tr th,
+#keyboardInputMaster thead tr td {
+  padding: 0.55em 0.55em 0.45em !important;
+  background: #f1f3f4 !important;
+  color: #333 !important;
+  white-space: nowrap !important;
+  border: 0 !important;
+  border-bottom: 1px solid #dee2e6 !important;
+}
+
+#keyboardInputMaster thead tr th {
+  text-align: left !important;
+  width: auto !important;
+  min-width: 10rem;
+}
+
+#keyboardInputMaster thead tr th abbr {
+  display: none !important; /* version badge — noisy on login */
+}
+
+#keyboardInputMaster thead tr th select {
+  margin: 0 0.4rem 0 0 !important;
+  padding: 0.2rem 0.45rem !important;
+  border: 1px solid #ced4da !important;
+  border-radius: 0.2rem !important;
+  background: #fff !important;
+  color: #333 !important;
+  font-size: inherit !important;
+  max-width: 11rem;
+}
+
+#keyboardInputMaster thead tr th label {
+  display: none !important; /* dead-keys toggle — rarely needed on login */
+}
+
+#keyboardInputMaster thead tr td {
+  text-align: right !important;
+  vertical-align: middle !important;
+}
+
+#keyboardInputMaster thead tr td span,
+#keyboardInputMaster thead tr td strong {
+  display: inline-block !important;
+  padding: 0 0.65em !important;
+  height: 1.75em !important;
+  line-height: 1.75em !important;
+  margin: 0 0 0 0.35em !important;
+  cursor: pointer !important;
+  border: 1px solid #ced4da !important;
+  border-radius: 0.2rem !important;
+  background: #fff !important;
+  color: #333 !important;
+  font-size: inherit !important;
+}
+
+#keyboardInputMaster thead tr td strong {
+  font-weight: 400 !important;
+  min-width: 1.75em;
+  text-align: center;
+}
+
+#keyboardInputMaster thead tr td span:hover,
+#keyboardInputMaster thead tr td strong:hover {
+  background: #e9ecef !important;
+  border-color: #adb5bd !important;
+}
+
+/* Key area */
+#keyboardInputMaster tbody tr td {
+  text-align: left !important;
+  padding: 0.45em 0.5em 0.55em !important;
+  background: #fff !important;
+  border: 0 !important;
+}
+
+#keyboardInputMaster tbody tr td div {
+  text-align: center !important;
+  position: relative !important;
+  height: 0;
+}
+
+#keyboardInputMaster tbody tr td div#keyboardInputLayout {
+  height: auto !important;
+}
+
+#keyboardInputMaster tbody tr td div#keyboardInputLayout table {
+  height: auto !important;
+  white-space: nowrap !important;
+  width: 100% !important;
+  border-collapse: separate !important;
+  border-spacing: 0.2em !important;
+  background: transparent !important;
+}
+
+#keyboardInputMaster tbody tr td div#keyboardInputLayout table.keyboardInputCenter {
+  width: auto !important;
+  margin: 0 auto !important;
+}
+
+#keyboardInputMaster tbody tr td div#keyboardInputLayout table tbody tr td {
+  vertical-align: middle !important;
+  padding: 0.35em 0.55em !important;
+  min-width: 1.1em !important;
+  height: 2em !important;
+  white-space: pre !important;
+  cursor: default !important;
+  color: #333 !important;
+  background: #f8f9fa !important;
+  border: 1px solid #dee2e6 !important;
+  border-radius: 0.25rem !important;
+  font-family: Sarala, Roboto, "Helvetica Neue", Arial, sans-serif !important;
+  font-size: 0.95em !important;
+}
+
+#keyboardInputMaster tbody tr td div#keyboardInputLayout table tbody tr td.last {
+  width: 99% !important;
+}
+
+#keyboardInputMaster tbody tr td div#keyboardInputLayout table tbody tr td.space {
+  padding: 0.35em 3.5em !important;
+}
+
+#keyboardInputMaster tbody tr td div#keyboardInputLayout table tbody tr td.alive {
+  background: rgba(63, 81, 181, 0.12) !important;
+  border-color: #3f51b5 !important;
+}
+
+#keyboardInputMaster tbody tr td div#keyboardInputLayout table tbody tr td.target {
+  background: rgba(245, 0, 87, 0.1) !important;
+  border-color: #f50057 !important;
+}
+
+#keyboardInputMaster tbody tr td div#keyboardInputLayout table tbody tr td.hover {
+  background: #e9ecef !important;
+  border-color: #adb5bd !important;
+}
+
+#keyboardInputMaster thead tr td span.pressed,
+#keyboardInputMaster tbody tr td div#keyboardInputLayout table tbody tr td.pressed,
+#keyboardInputMaster tbody tr td div#keyboardInputLayout table tbody tr td.dead {
+  background: #dee2e6 !important;
+  border-color: #adb5bd !important;
+  color: #333 !important;
+}
+
+#keyboardInputMaster tbody tr td div#keyboardInputLayout table tbody tr td span {
+  display: block !important;
+  text-align: center !important;
+  font-size: 0.55em !important;
+  white-space: pre !important;
+  color: #6c757d !important;
+}
+
+#keyboardInputMaster tbody tr td div var {
+  position: absolute !important;
+  bottom: 0.15em !important;
+  right: 0.35em !important;
+  font-weight: 400 !important;
+  font-style: normal !important;
+  color: #8ba3a7 !important;
+  font-size: 0.7em !important;
+}
+
+/* ---- Dark mode (Droid / rc_lite) — !important beats any leftover Larry sheet ---- */
+html.dark-mode #keyboardInputMaster {
+  color: #c5d1d3 !important;
+  background: #161b1d !important;
+  border-color: #4d6066 !important;
+  box-shadow: 0 4px 18px rgba(0, 0, 0, 0.55) !important;
+}
+
+html.dark-mode #keyboardInputMaster thead tr th,
+html.dark-mode #keyboardInputMaster thead tr td {
+  background: #21292c !important;
+  color: #c5d1d3 !important;
+  border-bottom-color: #4d6066 !important;
+}
+
+html.dark-mode #keyboardInputMaster thead tr th select {
+  color: #c5d1d3 !important;
+  background: #161b1d !important;
+  border-color: #4d6066 !important;
+}
+
+html.dark-mode #keyboardInputMaster thead tr td span,
+html.dark-mode #keyboardInputMaster thead tr td strong {
+  color: #c5d1d3 !important;
+  background: #374549 !important;
+  border-color: #4d6066 !important;
+}
+
+html.dark-mode #keyboardInputMaster thead tr td span:hover,
+html.dark-mode #keyboardInputMaster thead tr td strong:hover {
+  background: #4d6066 !important;
+  border-color: #6b787a !important;
+}
+
+html.dark-mode #keyboardInputMaster tbody tr td {
+  background: #161b1d !important;
+}
+
+html.dark-mode #keyboardInputMaster tbody tr td div#keyboardInputLayout table tbody tr td {
+  color: #c5d1d3 !important;
+  background: #21292c !important;
+  border-color: #4d6066 !important;
+}
+
+html.dark-mode #keyboardInputMaster tbody tr td div#keyboardInputLayout table tbody tr td.alive {
+  background: rgba(63, 81, 181, 0.28) !important;
+  border-color: #5c6bc0 !important;
+}
+
+html.dark-mode #keyboardInputMaster tbody tr td div#keyboardInputLayout table tbody tr td.target {
+  background: rgba(245, 0, 87, 0.22) !important;
+  border-color: #f50057 !important;
+}
+
+html.dark-mode #keyboardInputMaster tbody tr td div#keyboardInputLayout table tbody tr td.hover {
+  background: #374549 !important;
+  border-color: #6b787a !important;
+}
+
+html.dark-mode #keyboardInputMaster thead tr td span.pressed,
+html.dark-mode #keyboardInputMaster tbody tr td div#keyboardInputLayout table tbody tr td.pressed,
+html.dark-mode #keyboardInputMaster tbody tr td div#keyboardInputLayout table tbody tr td.dead {
+  background: #374549 !important;
+  border-color: #6b787a !important;
+  color: #fff !important;
+}
+
+html.dark-mode #keyboardInputMaster tbody tr td div#keyboardInputLayout table tbody tr td span {
+  color: #8ba3a7 !important;
+}
+
+html.dark-mode #keyboardInputMaster tbody tr td div var {
+  color: #6b787a !important;
+}

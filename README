@@ -1,0 +1,29 @@
+vkeyboard
+---------
+Virtual keyboard for Roundcube login fields (keylogger mitigation).
+
+Skins
+-----
+- skins/elastic/  — Elastic and skins that extend it (rc_lite, …)
+- skins/larry/    — legacy Larry
+- skins/classic/  — legacy Classic
+
+Skin resolution uses Roundcube `local_skin_path()` with fallback
+elastic → larry → classic.
+
+Enable
+------
+Add to config/config.inc.php:
+
+  $config['plugins'][] = 'vkeyboard';
+
+Copy the plugin folder to Roundcube `plugins/vkeyboard/`
+(sibling of `public_html/`, not inside the docroot).
+
+Assets are served via `static.php/plugins/vkeyboard/…`.
+Do not put `?query` on `include_stylesheet()` paths — RC 1.7
+checks `is_file()` and silently skips the sheet.
+
+Version
+-------
+1.9.3 — RC 1.7 public_html/static.php asset paths; flat Elastic keyboard
